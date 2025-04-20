@@ -3,11 +3,13 @@ import type { FC } from 'react'
 
 import { instanceAxios } from '@/lib'
 
-export const Home: FC = () => {
+export const About: FC = () => {
 	const [data, setData] = useState<string>()
 
 	useEffect(() => {
-		instanceAxios.get('/').then(({ data: { message } }) => setData(message))
+		instanceAxios
+			.get('/about')
+			.then(({ data: { message } }) => setData(message))
 	}, [])
 
 	return <div>{data}</div>

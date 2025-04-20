@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Route, Routes } from 'react-router'
 
 import './index.css'
-import { Home } from './pages'
+import { About, Home } from './pages'
 
 createRoot(document.getElementById('root')!).render(
 	<StrictMode>
@@ -12,6 +12,10 @@ createRoot(document.getElementById('root')!).render(
 				<Route
 					path='/'
 					element={<Home />}
+				/>
+				<Route
+					path='/about'
+					element={<About />}
 				/>
 			</Routes>
 		</BrowserRouter>
