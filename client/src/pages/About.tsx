@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import type { FC } from 'react'
 
+import { LayoutDefault } from '@/layouts'
+
 import { instanceAxios } from '@/lib'
 
 export const About: FC = () => {
@@ -12,5 +14,9 @@ export const About: FC = () => {
 			.then(({ data: { message } }) => setData(message))
 	}, [])
 
-	return <div>{data}</div>
+	return (
+		<LayoutDefault>
+			<h1>О Travel app</h1>
+		</LayoutDefault>
+	)
 }

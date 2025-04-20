@@ -3,21 +3,28 @@ import { createRoot } from 'react-dom/client'
 import { BrowserRouter, Route, Routes } from 'react-router'
 
 import './index.css'
-import { About, Home } from './pages'
+import { About, Home, NotFound } from './pages'
+import ErrorBoundary from './providers/ErrorBoundary'
 
 createRoot(document.getElementById('root')!).render(
 	<StrictMode>
 		<BrowserRouter>
-			<Routes>
-				<Route
-					path='/'
-					element={<Home />}
-				/>
-				<Route
-					path='/about'
-					element={<About />}
-				/>
-			</Routes>
+			<ErrorBoundary>
+				<Routes>
+					<Route
+						path='/'
+						element={<Home />}
+					/>
+					<Route
+						path='/about'
+						element={<About />}
+					/>
+					<Route
+						path='*'
+						element={<NotFound />}
+					/>
+				</Routes>
+			</ErrorBoundary>
 		</BrowserRouter>
 	</StrictMode>
 )

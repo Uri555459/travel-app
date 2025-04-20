@@ -20,7 +20,8 @@ app.use((req, res) => {
 	res.status(404).json({ message: 'Страница не найдена' })
 })
 
-app.use((req, res) => {
+app.use((err, req, res) => {
+	console.error(err.message)
 	res.status(500).json({ message: 'Ошибка сервера' })
 })
 
